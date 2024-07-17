@@ -47,6 +47,7 @@ export class IntroPage implements OnInit {
   constructor(private router: Router, private storage: Storage) { }
 
   ngOnInit() {
+    console.log("Hola Intro")
   }
 
   close() {
