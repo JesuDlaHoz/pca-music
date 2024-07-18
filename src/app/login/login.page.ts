@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticateService } from '../services/authenticate.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -9,19 +11,31 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) { 
+  
+  validation_messages = {
+    email: [
+      {type: "required", message: "El Email es Obligatorio"},
+      {type: "pattern", message: "Email Invalido"}
+    ],
+    password: [
+        {type: "required", message: "La Contraseña es Obligatoria"},
+        {type: "minlength", message: "La Contraseña debe tener al menos 6 dígitos"}
+    ]
+  }
+  
+  constructor(private formBuilder: FormBuilder, private authService: AuthenticateService, private navCtrl: NavController) { 
     this.loginForm = this.formBuilder.group({
       email: new FormControl(
-        '', 
+        "",
         Validators.compose([
           Validators.required,
-          Validators.pattern("/^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)$/")
+          Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
           //Validators.email
         ])
-      ), password: new FormControl(
-        "",
-        Validators.compose(
-          [
+      ),
+      password: new FormControl(
+          "",
+          Validators.compose([
             Validators.required,
             Validators.minLength(6)
           ])
@@ -29,10 +43,13 @@ export class LoginPage implements OnInit {
     })
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   loginUser(dataLogin: any){
-    console.log(dataLogin);
+    console.log(dataLogin)
+    this.authService.loginUser(dataLogin).then(res => {
+      this.navCtrl.navigateForward("/home")
+    })
   }
+
 }

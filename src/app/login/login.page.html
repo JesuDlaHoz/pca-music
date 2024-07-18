@@ -9,13 +9,42 @@
     <img src="assets/images/profile.png">  
   </figure>
   <form [formGroup]="loginForm" (ngSubmit)="(loginUser(loginForm.value))">
+
     <ion-item>
       <ion-input label="Email" labelPlacement="floating" placeholder="Correo Electronico" formControlName="email"></ion-input>
     </ion-item>
+
+    <div>
+      <ng-container *ngFor="let validation of validation_messages.email">
+        <div *ngIf=
+        "(loginForm.get('email')?.hasError(validation.type) && 
+        loginForm.get('email')?.dirty)">
+        {{validation.message}}
+      </div>
+      </ng-container>
+    </div>
+
     <ion-item>
       <ion-input label="Password" type="password" labelPlacement="floating" placeholder="*******" formControlName="password"></ion-input>
     </ion-item>
-    <ion-button shape="round" type="submit">Ingresar</ion-button>
+
+    <div>
+      <ng-container *ngFor="let validation of validation_messages.password">
+        <div *ngIf=
+        "(loginForm.get('password')?.hasError(validation.type) && 
+        loginForm.get('password')?.dirty)">
+        {{validation.message}}
+      </div>
+      </ng-container>
+    </div>
+
+    <ion-button 
+    type="submit"
+    [disabled]="!loginForm.valid"
+    expand="block"
+    shape="round"
+    color="success"
+    >Ingresar</ion-button>
   </form>
   
 </ion-content>
