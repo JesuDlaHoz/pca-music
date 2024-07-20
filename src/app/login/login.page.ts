@@ -76,4 +76,13 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
+  // Ocultar contraseña 
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
+  
+  togglePasswordType() {
+    this.passwordType = this.passwordType === 'password' ? 'text' : 'password';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+  }
+
 }

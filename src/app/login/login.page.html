@@ -25,7 +25,10 @@
     </div>
 
     <ion-item>
-      <ion-input label="Password" type="password" labelPlacement="floating" placeholder="*******" formControlName="password"></ion-input>
+      <ion-input [type]="passwordType" label="Contraseña" labelPlacement="floating" placeholder="*******" formControlName="password"></ion-input>
+      <ion-button fill="clear" slot="end" (click)="togglePasswordType()">
+      <ion-icon [name]="passwordIcon"></ion-icon>
+      </ion-button>
     </ion-item>
 
     <div>
@@ -45,6 +48,12 @@
     shape="round"
     color="success"
     >Ingresar</ion-button>
+
+    <!-- Link de Registro -->
+    <p class="ion-text-center">
+      <a routerLink="/register">¿No tienes cuenta? Registrate aqui</a>
+    </p>
+
   </form>
   
 </ion-content>
