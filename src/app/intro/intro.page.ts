@@ -53,7 +53,7 @@ export class IntroPage implements OnInit {
   close() {
     //console.log("estoy intentando cerrar la consola");
     this.storage.set('isIntroShowed', true);
-    this.router.navigate(['/home']);
+    this.router.navigate(['/menu/home']);
   }
 
 }
