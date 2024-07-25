@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MusicService } from '../services/music.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 
-export class HomePage {
+export class HomePage implements OnInit {
   
-  constructor(private router: Router) { }
+  artistsJson: any;
+  artists: any;
+
+  constructor(private router: Router, 
+    private musicService: MusicService) { }
+
+  ngOnInit() {
+    this.artistsJson = this.musicService.getArtistsJson().artists;
+    console.log("Json", this.artistsJson)
+    /* this.musicService.getArtists().subscribe((data:any) => {
+      this.artists = data
+      console.log(this.artists);
+    }) */
+    this.musicService.getArtists().then( data => {
+      this.artists = data
+      console.log(this.artists);
+    })
+  }
 
   close() {
     this.router.navigate(['/intro']);
