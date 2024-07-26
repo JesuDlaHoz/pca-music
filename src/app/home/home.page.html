@@ -11,7 +11,7 @@
   <h1 class="ion-text-center  ion-text-capitalize">Artistas</h1>
   <swiper-container slides-per-view="4" speed="400">
     <swiper-slide *ngFor="let artstis of artists">
-      <ion-avatar>
+      <ion-avatar (click)="showSongs(artstis)">
         <img src="{{artstis.image}}">
         <span>{{artstis.name}}</span>
       </ion-avatar>
