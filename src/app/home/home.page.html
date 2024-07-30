@@ -5,10 +5,10 @@
       </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content>
 
+<ion-content>
   <ion-icon name="close-circle-outline" (click)="close()"></ion-icon>
-  <h1 class="ion-text-center  ion-text-capitalize">Artistas</h1>
+    <h1 class="ion-text-center  ion-text-capitalize">Artistas</h1>
   <swiper-container slides-per-view="4" speed="400">
     <swiper-slide *ngFor="let artstis of artists">
       <ion-avatar (click)="showSongs(artstis)">
@@ -17,5 +17,28 @@
       </ion-avatar>
     </swiper-slide>
   </swiper-container>
-
 </ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-start">{{ parseTime(currentSong.currentTime) || "0:00"}}</ion-col>
+      <ion-col class="ion-text-end">{{ parseTime(currentSong.duration) || "0:00"}}</ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-progress-bar [value]="newTime || 0"></ion-progress-bar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon name="heart"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-text>{{song.name || "Aun no has seleccionado cancion"}}</ion-text>
+      </ion-col>
+      <ion-col class="ion-text-end">
+        <ion-icon name="play" (click)="play()" *ngIf="!song.playing"></ion-icon>
+        <ion-icon name="pause" (click)="pause()" *ngIf="song.playing"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
