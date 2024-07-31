@@ -1,0 +1,36 @@
+ion-header {
+    background-color: black; /* Fondo oscuro del encabezado */
+    --color: white; /* Color del texto en el encabezado */
+ }
+  
+ion-toolbar {
+    --background: black; /* Fondo oscuro de la barra de herramientas */
+}
+  
+ion-title {
+    font-size: 24px;
+    color: white; /* Color similar a Spotify para el título */
+}
+
+ion-button {
+    color: #1DB954; /* Color del botón de cerrar */
+}
+  
+ion-content {
+    --background: black; /* Fondo oscuro del contenido */
+}
+  
+ion-item {
+    --background: rgb(43, 39, 39); 
+    color: white; /* Color del texto de los ítems */
+}
+
+ion-content {
+    --background: #1c1c1e; /* Fondo oscuro del contenido */
+    padding: 0; /* Quitar padding para eliminar espacio extra */
+}
+
+ion-list {
+    margin: 0; 
+    padding: 0; 
+}

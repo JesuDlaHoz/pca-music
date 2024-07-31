@@ -1,4 +1,88 @@
+ion-header {
+    background-color: black; /* Fondo del encabezado */
+    --color: white; /* Color del texto del encabezado */
+}
+  
+ion-toolbar {
+    --background: #222121; /* Fondo de la barra de herramientas */
+}
+  
+ion-content {
+    --background: black; /* Fondo del contenido */
+    padding: 20px;
+}
+  
+ion-icon {
+    color: #1DB954; /* Color del icono */
+    font-size: 24px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+  
+h1 {
+    color: white; /* Color del título */
+    margin: 20px 0;
+}
+  
+swiper-container {
+    width: 100%;
+    height: auto;
+}
+  
+swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
 ion-avatar {
     height: 80%;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+  
+ion-avatar img {
+    width: auto;
+    height: auto;
+}
+  
+ion-avatar span {
+    color: white; /* Color del texto */
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: center;
+}
+  
+ion-footer {
+    background-color: rgb(37, 37, 37);/* Fondo del pie de página */
+    padding: 10px;
+}
+  
+ion-grid {
+    width: 100%;
+}
+  
+ion-progress-bar {
+    --progress-background: #4caf50; /* Color de la barra de progreso */
+    --progress-background-rgb: 76, 175, 80;
+}
+  
+ion-icon {
+    font-size: 24px;
+}
+
+ion-menu-button{
+    color: #1DB954;
+}
+  
+ion-col {
+    color: white; /* Color del texto en las columnas */
+}
+  
+ion-text {
+    color: white; /* Color del texto */
+}  

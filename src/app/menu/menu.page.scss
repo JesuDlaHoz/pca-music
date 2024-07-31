@@ -1,0 +1,37 @@
+ion-split-pane {
+    --ion-background-color: black; /* Fondo oscuro */
+}
+  
+ion-menu {
+    --background: black; /* Fondo del menú */
+}
+
+ion-toolbar {
+    --background: black; /* Fondo de la barra de herramientas del menú */
+}
+  
+ion-title {
+    font-size: 24px;
+    color: white; /* Color del título del menú */
+}
+  
+ion-button {
+    --color: #1DB954; /* Color del botón de cerrar */
+}
+  
+ion-icon {
+    color: #1DB954; /* Color del icono */
+}
+  
+ion-content {
+    --background: black; /* Fondo del contenido del menú */
+    padding: 20px;
+}
+  
+ion-item {
+    --color: white; /* Color del texto */
+}
+
+ion-item ion-icon {
+    color: #1DB954; /* Color del icono del ítem */
+  }
